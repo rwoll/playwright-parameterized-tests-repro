@@ -46,4 +46,7 @@ Running 3 tests using 3 workers
 
 I expected the reporter to not reference `helpers/index.ts` at all.
 
-NB: The `testInfo.titlePath` looks correct in the actual output, and it looks like the runner chose to run `a.spec.ts` and `b.spec.ts` in parallel, so even though the reporter says it's all part of `helpers/index.ts`, the scheduler and `testInfo` appear to be correct.
+A few notes:
+* The `testInfo.titlePath` looks correct in the actual output.
+* It looks like the runner chose to run `a.spec.ts` and `b.spec.ts` in parallel (based on worker counts).
+* HTML Report works correctly, and doesn't have the same reporting issue. (See it via `npx playwright test --reporter html && npx playwright show-report`).
